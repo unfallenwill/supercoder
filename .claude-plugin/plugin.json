@@ -1,0 +1,6 @@
+{
+  "name": "supercoder",
+  "version": "0.1.0",
+  "description": "Analyze requirements documents with project-aware context. One-click pipeline: review, task breakdown, and technical design.",
+  "keywords": ["requirements", "analysis", "workflow", "task-breakdown", "technical-design"]
+}
