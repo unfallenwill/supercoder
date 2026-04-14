@@ -1,0 +1,11 @@
+{
+  "name": "supercoder",
+  "display_name": "Supercoder",
+  "description": "Analyze requirements documents with full project context. One-click pipeline that produces a review, task breakdown, and technical design grounded in your actual codebase.",
+  "category": "workflow",
+  "tags": ["requirements", "analysis", "task-breakdown", "technical-design", "workflow"],
+  "author": {
+    "name": "unfallenwill"
+  },
+  "repo": "https://github.com/unfallenwill/supercoder"
+}
