@@ -1,6 +1,6 @@
 ---
 name: supercoder
-version: 1.0.0
+version: 0.1.0
 description: >
   This skill should be used when the user provides a requirements document, PRD, specification,
   feature request, or any requirement text and wants it analyzed against the current codebase.
@@ -16,7 +16,6 @@ allowed-tools:
   - Bash
   - Glob
   - Grep
-  - AskUserQuestion
   - WebFetch
 ---
 
