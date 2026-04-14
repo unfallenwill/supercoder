@@ -1,11 +1,20 @@
 {
-  "name": "supercoder",
-  "display_name": "Supercoder",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "unfallenwill-supercoder",
   "description": "Analyze requirements documents with full project context. One-click pipeline that produces a review, task breakdown, and technical design grounded in your actual codebase.",
-  "category": "workflow",
-  "tags": ["requirements", "analysis", "task-breakdown", "technical-design", "workflow"],
-  "author": {
+  "owner": {
     "name": "unfallenwill"
   },
-  "repo": "https://github.com/unfallenwill/supercoder"
+  "plugins": [
+    {
+      "name": "supercoder",
+      "description": "Analyze requirements documents with full project context. One-click pipeline: review, task breakdown, and technical design grounded in your actual codebase.",
+      "category": "development",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/unfallenwill/supercoder.git"
+      },
+      "homepage": "https://github.com/unfallenwill/supercoder"
+    }
+  ]
 }
