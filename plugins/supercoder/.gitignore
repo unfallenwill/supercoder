@@ -1,0 +1,4 @@
+.supercoder/
+node_modules/
+data/
+*.db
