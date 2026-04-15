@@ -1,10 +1,43 @@
 # Phase 5: Implement — 增量实现
 
 > Load this reference at the start of Phase 5.
-> Read `context.md`, `design.md`, and `checkpoints.md` before following these steps.
 
 Write working code, one increment at a time. Each increment is independently
 verifiable and produces a tangible step forward.
+
+## Input
+- Design plan from Phase 4 (chosen approach, implementation steps, testing strategy)
+- Codebase patterns and conventions from Phase 2
+- Carry-Forward summaries from Phase 2 and Phase 4
+
+## Output
+- Working code (files created/modified)
+- Implementation Summary (template below)
+
+```
+## Implementation Summary
+
+**Files Changed:**
+- `path/to/file` — <what changed and why>
+
+**Design Approach Implemented:** <which approach was chosen in Phase 4>
+
+**Deviations from Design:** <any deviations and why, or "None">
+
+**Verification Status:** <tests run, manual checks performed>
+```
+
+## Carry-Forward Summary
+
+Before completing this phase, output a compact summary (under 100 words):
+
+```
+## Carry-Forward
+- **Files changed:** [count and key paths]
+- **Design approach:** [name]
+- **Deviations:** [any, or "None"]
+- **Test status:** [passing / failing / manual]
+```
 
 ## Increment Principles
 
@@ -16,47 +49,40 @@ verifiable and produces a tangible step forward.
 
 ## Steps
 
-1. **Plan increments**
-   Break the design's implementation plan into small increments. Write the plan
-   to context.md under "Implementation Progress":
-   ```markdown
-   ## Implementation Progress
+1. **TaskUpdate** — set Phase 5 status to `in_progress`.
 
-   ### Plan
-   1. <increment 1 description> — Status: pending
-   2. <increment 2 description> — Status: pending
-   3. <increment 3 description> — Status: pending
+2. **Plan increments** — Break the design's implementation plan into small
+   increments. Use TaskCreate for each increment as a sub-task.
 
-   ### Completed
-   (none yet)
-   ```
+3. **Execute each increment**:
 
-2. **Execute each increment**:
+   a. **TaskUpdate** the increment task to `in_progress`.
 
-   a. **Implement** — Use Edit/Write tools to make code changes. Follow the
+   b. **Implement** — Use Edit/Write tools to make code changes. Follow the
       patterns and conventions identified in Phase 2.
 
-   b. **Verify** — Run relevant tests with Bash. If the project has no tests
-      for this area, verify manually (run the code, check output). Note that
-      manual verification was used.
+   c. **Verify** — Run relevant tests with Bash. If no tests exist for this
+      area, verify manually and note that manual verification was used.
 
-   c. **Handle failures**:
-      - Test failure → Analyze the error output, fix the code, re-test
+   d. **Handle failures**:
+      - Test failure → Analyze error output, fix the code, re-test
       - Max 2 retries per increment
       - On 3rd failure: pause, report to user with error details
       - Ask whether to adjust the approach or roll back to DESIGN
 
-   d. **Check checkpoint** — If this increment corresponds to a checkpoint in
-      `checkpoints.md`, pause and ask the user to review via AskUserQuestion.
+   e. **TaskUpdate** the increment task to `completed`.
 
-   e. **Update progress** — Mark increment as completed in context.md. Add to
-      "Completed" section with files changed and verification result.
+4. **First increment checkpoint** — After the FIRST increment is complete and
+   verified, always pause for user confirmation via AskUserQuestion. Present
+   the changes made and the direction for next increments. This ensures the
+   implementation is on track before investing in more work.
 
-3. **First increment checkpoint**
-   After the FIRST increment is complete and verified, always pause for user
-   confirmation — even if not listed in checkpoints.md. Present the changes
-   made and the direction for next increments. This ensures the AI understood
-   the requirement correctly before investing in more implementation.
+5. **Implementation Summary** — After ALL increments are complete, present a
+   consolidated summary using the Output template above.
+
+6. **Produce carry-forward summary** using the Carry-Forward template above.
+
+7. **TaskUpdate** — set Phase 5 status to `completed`.
 
 ## Error Recovery
 
@@ -78,12 +104,11 @@ verifiable and produces a tangible step forward.
 ## Rollback to DESIGN
 
 If implementation reveals fundamental design issues:
-1. Document what was found in context.md
+1. Report what was found in conversation
 2. Explain why the design doesn't work
-3. Roll back to DESIGN phase
-4. Propose an adjusted design
+3. TaskUpdate Phase 4 back to `pending`
+4. Propose an adjusted design (carry forward prior findings)
 
 ## Transition
 
-After all increments are complete, proceed to Phase 6 (Verify).
-Read `verify-phase.md`.
+Proceed to Phase 6 (Verify). Read `verify-phase.md`.

@@ -1,25 +1,69 @@
 # Phase 6: Verify — 验证交付
 
 > Load this reference at the start of Phase 6.
-> Read `context.md`, `understanding.md`, and `clarified.md` before following these steps.
 
 Confirm that the implementation actually works and meets the acceptance criteria.
 This is the final quality gate before delivery.
 
+## Input
+- Refined Acceptance Criteria from Phase 3
+- Design plan from Phase 4 (what was intended)
+- Implementation Summary from Phase 5 (files changed, deviations)
+- Carry-Forward summaries from Phase 3, 4, and 5
+
+## Output
+
+```
+## Verification Results
+
+### Test Results
+- Suite: [ran / not available]
+- Status: [all pass / N failures]
+- Pre-existing failures: [none / listed]
+
+### Acceptance Criteria Status
+1. PASS — [criterion] — satisfied by `file:line`
+2. PASS — [criterion] — satisfied by `file:line`
+3. FAIL — [criterion] — reason: [explanation]
+
+### Edge Case Scan
+- **Error handling:** [covered / needs attention: details]
+- **Boundary conditions:** [covered / needs attention: details]
+- **Security:** [covered / needs attention: details]
+- **Performance:** [covered / needs attention: details]
+
+### Known Limitations
+- [limitation and why]
+
+### PR Description
+**Summary:**
+- [bullet 1]
+- [bullet 2]
+
+**Test plan:**
+- [ ] [test 1]
+- [ ] [test 2]
+
+### Reviewer Notes
+- [area]: [why it needs careful review]
+```
+
 ## Steps
 
-1. **Run full test suite**
+1. **TaskUpdate** — set Phase 6 status to `in_progress`.
+
+2. **Run full test suite**
    Use Bash to run the project's full test suite.
 
    If tests fail:
-   - **Related to new changes**: Fix and re-run. This is still part of Phase 5
-     recovery. Re-run only the failing tests first, then the full suite.
+   - **Related to new changes**: Fix and re-run. Re-run only the failing tests
+     first, then the full suite.
    - **Pre-existing failures**: Note them and proceed. Do not fix unrelated failures.
    - **No test suite exists**: Note this explicitly. Recommend test coverage as
      a follow-up task.
 
-2. **Verify acceptance criteria**
-   For each criterion from the clarified requirement:
+3. **Verify acceptance criteria**
+   For each criterion from Phase 3's refined acceptance criteria:
    - Check if it's met by the implementation
    - Identify the specific code that satisfies it (file + line reference)
    - Mark as PASS or FAIL with explanation
@@ -28,7 +72,7 @@ This is the final quality gate before delivery.
    - Minor: fix directly, re-verify
    - Major: roll back to IMPLEMENT or DESIGN
 
-3. **Edge case scan**
+4. **Edge case scan**
 
    **Error Handling** — Are error paths covered? Invalid input? Network/API failures?
 
@@ -41,46 +85,11 @@ This is the final quality gate before delivery.
    **Performance** — N+1 queries, unnecessary loops, memory leaks (event listeners,
    subscriptions), large payload handling.
 
-4. **Generate deliverables** — Write `changes.md`:
-   ```markdown
-   # Changes: <name>
+5. **Present delivery summary** — Show the user the full Output above.
 
-   ## Summary
-   <one paragraph describing what was built and why>
+6. **Ask user to confirm** — Use AskUserQuestion for final approval or adjustments.
 
-   ## Files Changed
-   - `path/to/file1` — <what changed and why>
-   - `path/to/file2` — <what changed and why>
-
-   ## Acceptance Criteria Status
-   1. PASS [criterion] — satisfied by [code reference]
-   2. PASS [criterion] — satisfied by [code reference]
-   3. WARN [criterion] — partially met: [explanation]
-
-   ## Edge Cases Reviewed
-   - [edge case]: [handled / needs attention / out of scope]
-
-   ## Known Limitations
-   - [limitation and why]
-
-   ## PR Description
-
-   ### Summary
-   <2-3 bullet points>
-
-   ### Test plan
-   - [ ] [manual or automated test 1]
-   - [ ] [manual or automated test 2]
-
-   ## Reviewer Notes
-   Specific areas that warrant extra human attention:
-   - [area 1]: [why it needs careful review]
-   ```
-
-5. **Present to user** — Show the changes summary. Ask the user to confirm the
-   delivery or request adjustments via AskUserQuestion.
-
-6. **Update context.md** — Update status to "DONE". Add final summary.
+7. **TaskUpdate** — set Phase 6 status to `completed`.
 
 ## Issue Severity Guide
 
@@ -90,21 +99,13 @@ This is the final quality gate before delivery.
 | Moderate | Incomplete error handling | New increment, implement, re-verify |
 | Major | Core functionality broken | Roll back to IMPLEMENT or DESIGN |
 
-## Final Output
+## Rollback
 
-After user confirms delivery, print:
+For major issues found during verification:
+1. Report the issue with specific details
+2. TaskUpdate Phase 5 (or Phase 4) back to `pending`
+3. Re-enter the appropriate phase with explanation (carry forward prior findings)
 
-```
-Supercoder complete. Outputs in .supercoder/<name>/
-- input.md         — original requirement
-- understanding.md — structured requirement analysis
-- context.md       — accumulated project context
-- clarified.md     — refined requirement after Q&A
-- design.md        — chosen architectural design
-- checkpoints.md   — implementation checkpoints
-- changes.md       — change summary and PR description
+## Done
 
-N code changes implemented across M files.
-```
-
-The workflow is done.
+After user confirms delivery, the workflow is complete.

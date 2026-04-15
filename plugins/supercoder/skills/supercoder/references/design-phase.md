@@ -1,105 +1,118 @@
 # Phase 4: Design — 方案设计
 
 > Load this reference at the start of Phase 4.
-> Read `context.md`, `understanding.md`, and `clarified.md` before following these steps.
 
-Propose concrete architectural approaches and let the user choose. Then detail
-the chosen approach into an implementable plan.
+Propose concrete architectural approaches and let the user choose. This phase
+uses a two-step process: first generate brief approach cards in parallel, then
+detail only the chosen approach.
 
-## Principle
+## Input
+- Structured understanding from Phase 1 (Core Intent, Scope, Constraints)
+- Codebase findings from Phase 2 (Architecture, Patterns, Relevant Files)
+- Refined Scope, Refined Acceptance Criteria, Key Decisions from Phase 3
+- Carry-Forward summaries from Phase 1, 2, and 3
 
-Design is a creative act with no single right answer. Present trade-offs honestly
-and let the human make the call. Focus on approaches that differ in fundamental
-ways, not minor variations.
+## Output (Step One: Approach Cards)
 
-## Design Method
+Each subagent returns a brief card:
 
-Design directly using the codebase context (context.md), clarifications
-(clarified.md), and design patterns appropriate to the project's technology
-stack. Reference actual files and patterns found during exploration.
+```
+## Approach [X]: [Name]
+
+**Summary:** [one sentence]
+
+**Strategy:** [what changes and how — the core mechanism]
+
+**Files affected:** [specific file paths]
+
+**Complexity:** Low / Medium / High
+
+**Risk:** [what could go wrong]
+
+**Consistency:** [how well it fits existing patterns — High / Medium / Low]
+```
+
+## Output (Step Two: Chosen Design)
+
+```
+## Design: [Chosen Approach Name]
+
+**Rationale:** [why this approach was chosen]
+
+### Implementation Plan
+
+#### Step 1: [title]
+- **Files:** [paths to create or modify]
+- **Changes:** [what to do]
+- **Verification:** [how to confirm it works]
+
+#### Step 2: [title]
+- **Files:** [paths]
+- **Changes:** [what to do]
+- **Verification:** [how to confirm it works]
+
+### Data Model Changes
+(if applicable) Schema changes, new types, migrations.
+
+### API Changes
+(if applicable) New endpoints, modified contracts, breaking changes.
+
+### Testing Strategy
+- Unit: [what to test]
+- Integration: [what to verify]
+- Manual: [how to verify end-to-end]
+
+### Migration / Rollout
+(if applicable) Deployment steps, feature flags, rollback plan.
+```
+
+## Carry-Forward Summary
+
+Before completing this phase, output a compact summary (under 100 words):
+
+```
+## Carry-Forward
+- **Chosen approach:** [name and one-line rationale]
+- **Steps:** [N implementation steps]
+- **Files affected:** [count]
+- **Key trade-off:** [what we gain vs. what we give up]
+- **Testing:** [unit + integration + manual summary]
+```
 
 ## Steps
 
-1. **Generate 2-3 approaches** (if more than 3 emerge during brainstorming,
-   pick the top 3 most distinct ones). For each approach, document:
-   - **Summary**: One-sentence description of the approach
-   - **Strategy**: What changes and how — the core mechanism
-   - **Files affected**: Specific file paths that would change
-   - **Complexity**: Low / Medium / High — implementation effort
-   - **Risk**: What could go wrong with this approach
-   - **Consistency**: How well it fits existing code patterns (High / Medium / Low)
+1. **TaskUpdate** — set Phase 4 status to `in_progress`.
 
-   Approaches should vary along these dimensions:
-   - Scope of change (minimal vs. broad refactoring)
-   - Architecture pattern (extend existing vs. introduce new abstraction)
-   - Trade-off between speed and extensibility
+2. **Step One: Generate 3 approach cards in parallel** — Use the Agent tool to
+   spawn 3 subagents simultaneously. Include the carry-forward summaries from
+   Phase 1, 2, and 3 in each Agent tool's prompt.
 
-2. **Present to user** — Use AskUserQuestion to present the approaches.
-   Show trade-offs clearly. Ask the user to select one.
+   The 3 subagents should vary along these dimensions:
+   - **Approach A: Minimal Change** — extend existing patterns, smallest scope,
+     lowest risk
+   - **Approach B: Balanced** — moderate refactoring, good extensibility,
+     reasonable risk
+   - **Approach C: Architectural** — introduce new abstraction, most extensible,
+     highest complexity
 
-3. **Detail the chosen design** — Write `design.md`:
-   ```markdown
-   # Technical Design: <name>
+   Each subagent returns a card using the Step One Output template above.
 
-   ## Chosen Approach: <approach name>
-   <rationale for choosing this approach>
+3. **Present to user** — Show all 3 approach cards. Use AskUserQuestion to let
+   the user select one. Include trade-offs in the option descriptions.
 
-   ## Implementation Plan
+4. **Step Two: Detail the chosen design** — After user selection, expand the
+   chosen approach into a full plan using the Step Two Output template above.
 
-   ### Step 1: <title>
-   - **Files**: specific paths to create or modify
-   - **Changes**: what to do in this step
-   - **Verification**: how to confirm it works
+5. **Produce carry-forward summary** using the template above.
 
-   ### Step 2: <title>
-   - **Files**: specific paths
-   - **Changes**: what to do
-   - **Verification**: how to confirm it works
-
-   (continue for all steps — order by dependency)
-
-   ## Data Model Changes
-   (if applicable) Schema changes, new types, migrations.
-
-   ## API Changes
-   (if applicable) New endpoints, modified contracts, breaking changes.
-
-   ## Testing Strategy
-   - Unit tests: what to test
-   - Integration tests: what to verify
-   - Manual testing: how to verify end-to-end
-
-   ## Migration / Rollout
-   (if applicable) Deployment steps, feature flags, rollback plan.
-   ```
-
-4. **Define checkpoints** — Identify 2-3 points during implementation where the
-   user should review progress. Write `checkpoints.md`:
-   ```markdown
-   # Implementation Checkpoints: <name>
-
-   ## Checkpoint 1: After <step description>
-   - What to review: <specific files or behavior>
-   - What to verify: <test or manual check>
-
-   ## Checkpoint 2: After <step description>
-   - What to review: <specific files or behavior>
-   - What to verify: <test or manual check>
-   ```
-
-5. **Update context.md** — Add a "Design Decision" section:
-   ```markdown
-   ## Design Decision
-   - **Approach**: <chosen approach name>
-   - **Rationale**: <why this approach>
-   - **Key trade-off**: <what we gain vs. what we give up>
-   ```
-   Update status to "DESIGN → IMPLEMENT".
+6. **TaskUpdate** — set Phase 4 status to `completed`.
 
 ## Rollback
 
-If detailing the chosen approach reveals ambiguities not caught in Phase 3,
-roll back to CLARIFY with specific new questions.
+If detailing the chosen approach reveals ambiguities not caught in Phase 3:
+1. TaskUpdate Phase 3 back to `pending`
+2. Return to CLARIFY with specific new questions
+3. Carry forward all previously established findings
 
 ## Transition
 
