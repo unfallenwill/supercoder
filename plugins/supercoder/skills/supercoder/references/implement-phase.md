@@ -1,7 +1,5 @@
 # Phase 5: Implement
 
-> Load this reference at the start of Phase 5.
-
 Write working code, one increment at a time. Each increment is independently verifiable and produces a tangible step forward.
 
 ## What to Communicate
@@ -30,7 +28,7 @@ Before finishing, make sure the conversation retains: how many files changed and
 2. Break the design's implementation plan into small increments. Use TaskCreate for each increment as a sub-task.
 3. Execute each increment:
    - TaskUpdate the increment to `in_progress`.
-   - Implement using Edit/Write tools. Follow the patterns and conventions from Phase 2.
+   - Implement using Edit/Write tools. Follow identified patterns and conventions.
    - Run relevant tests with Bash. If no tests exist for this area, verify manually and note that.
    - On test failure: analyze the error, fix the code, re-test. Max 2 retries per increment. On 3rd failure, pause and report to the user with details. Ask whether to adjust the approach or roll back to Design.
    - TaskUpdate the increment to `completed`.

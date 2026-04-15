@@ -1,8 +1,6 @@
 # Phase 3: Clarify
 
-> Load this reference at the start of Phase 3.
-
-Use codebase context to ask targeted clarifying questions. Turn "what the user said" into "what the user means."
+Ask targeted technical questions based on codebase findings. The questions here are about how to implement it — architectural choices, pattern conflicts, compatibility concerns.
 
 ## What to Communicate
 
@@ -14,11 +12,11 @@ After getting the user's answers, present:
 
 ## Context to Preserve
 
-Before finishing, make sure the conversation retains: the refined intent, what changed from Phase 1, the updated acceptance criteria count, and the top decisions with their impact.
+Before finishing, make sure the conversation retains: the refined intent, the updated acceptance criteria count, and the top decisions with their impact.
 
 ## Principle
 
-Good clarification questions are specific and grounded in the codebase. Compare:
+Good technical questions are specific and grounded in the codebase. Compare:
 
 - Weak: "What payment methods do you want?" (generic, no context)
 - Strong: "The codebase has WechatPay and AliPay adapters in `src/payments/adapters/`. Should new methods follow this adapter pattern, or refactor to a plugin architecture?" (specific, references actual code, offers concrete options)
@@ -32,7 +30,7 @@ Good clarification questions are specific and grounded in the codebase. Compare:
    1. Block architectural decisions (highest priority)
    2. Affect the scope of work significantly
    3. Resolve conflicting interpretations
-   4. Clarify edge cases in acceptance criteria
+   4. Clarify technical edge cases
 
 3. Present to user — use AskUserQuestion, up to 4 questions per batch. Each question gets a clear header, the context, and 2–3 options with descriptions.
 4. Incorporate answers — present updated scope and acceptance criteria.
@@ -41,7 +39,7 @@ Good clarification questions are specific and grounded in the codebase. Compare:
 
 ## Rollback
 
-If clarification reveals insufficient exploration (e.g., the user mentions a module not found in Phase 2): set Phase 2 back to `pending`, re-run exploration with the additional focus area (carrying forward prior findings), then return to Clarify with updated context.
+If clarification reveals insufficient exploration (e.g., the user mentions a module not found): set Phase 2 back to `pending` and specify what additional areas need exploration.
 
 ## Transition
 

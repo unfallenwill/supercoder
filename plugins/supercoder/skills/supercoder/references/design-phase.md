@@ -1,7 +1,5 @@
 # Phase 4: Design
 
-> Load this reference at the start of Phase 4.
-
 Propose concrete architectural approaches and let the user choose. This phase uses a two-step process: first generate brief approach summaries in parallel, then detail only the chosen one.
 
 ## What to Communicate
@@ -23,12 +21,12 @@ Before finishing, make sure the conversation retains: the chosen approach and wh
 ## Steps
 
 1. TaskUpdate — set Phase 4 to `in_progress`.
-2. Generate 3 approach summaries in parallel — use the Agent tool to spawn 3 subagents simultaneously. Include the carry-forward context from Phases 1, 2, and 3 in each prompt. Assign one approach per subagent:
+2. Generate 3 approach summaries in parallel — use the Agent tool to spawn 3 subagents simultaneously. Include all carry-forward context in each prompt. Assign one approach per subagent:
    - **Subagent A:** Minimal Change — extend existing patterns, smallest scope, lowest risk
    - **Subagent B:** Balanced — moderate refactoring, good extensibility, reasonable risk
    - **Subagent C:** Architectural — introduce new abstraction, most extensible, highest complexity
 
-   Each subagent receives the full carry-forward context and returns only its assigned approach summary.
+   Each subagent returns only its assigned approach summary.
 
 3. Present all three to the user. Use AskUserQuestion to let the user select one, with trade-offs in the option descriptions.
 4. After the user chooses, expand that approach into a full implementation plan.
@@ -37,7 +35,7 @@ Before finishing, make sure the conversation retains: the chosen approach and wh
 
 ## Rollback
 
-If detailing the chosen approach reveals ambiguities not caught in Phase 3: set Phase 3 back to `pending`, return to Clarify with specific new questions, and carry forward all prior findings.
+If detailing the chosen approach reveals ambiguities: set Phase 3 back to `pending`, return with specific new questions, and carry forward all prior findings.
 
 ## Transition
 

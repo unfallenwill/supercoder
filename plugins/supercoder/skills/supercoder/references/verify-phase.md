@@ -1,7 +1,5 @@
 # Phase 6: Verify
 
-> Load this reference at the start of Phase 6.
-
 Confirm that the implementation works and meets the acceptance criteria. This is the final quality gate.
 
 ## What to Communicate
@@ -25,7 +23,7 @@ Before finishing, make sure the conversation retains: the final test results sum
    - Related failures: fix and re-run (failing tests first, then full suite).
    - Pre-existing failures: note them and proceed. Do not fix unrelated failures.
    - No test suite: note this explicitly and recommend test coverage as follow-up.
-3. Verify each acceptance criterion from Phase 3. For each, check if it's met, identify the specific code (file + line), and mark pass or fail.
+3. Verify each acceptance criterion. For each, check if it's met, identify the specific code (file + line), and mark pass or fail.
    - Minor failure: fix directly, re-verify.
    - Major failure: roll back to Implement or Design.
 4. Edge case scan:

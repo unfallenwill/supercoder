@@ -78,7 +78,6 @@ State lives in conversation, not files. To prevent information loss across long 
 
 - Phase failure: report what was attempted and what went wrong.
 - No relevant code found: note it and proceed. The feature may be novel.
-- Rollback: set the target phase back to `pending`, explain why, and re-enter with prior findings.
 
 ## Constraints
 

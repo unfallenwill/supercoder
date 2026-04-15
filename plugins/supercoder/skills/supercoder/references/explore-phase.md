@@ -1,7 +1,5 @@
 # Phase 2: Explore
 
-> Load this reference at the start of Phase 2.
-
 Deeply analyze the codebase to understand how the project works and how the requirement relates to existing code. This phase delegates exploration to three parallel subagents for efficiency.
 
 ## What to Communicate
@@ -24,7 +22,7 @@ Before finishing, make sure the conversation retains: the architecture style in 
 ## Steps
 
 1. TaskUpdate — set Phase 2 to `in_progress`.
-2. Launch three parallel subagents using the Agent tool. Include the Phase 1 context summary in each prompt so they know what to explore.
+2. Launch three parallel subagents using the Agent tool. Include the context summary in each prompt so they know what to explore.
 3. After all three return, merge their findings into a unified summary. Remove redundant findings between subagents.
 4. Preserve context for downstream phases.
 5. TaskUpdate — set Phase 2 to `completed`.
