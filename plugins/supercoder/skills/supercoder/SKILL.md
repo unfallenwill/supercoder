@@ -53,7 +53,7 @@ before proceeding.
 
 ### Step 2: Requirements Review
 
-Use the `feature-dev:code-explorer` agent (subagent_type: "feature-dev:code-explorer") to deeply
+Use the `explorer` agent (subagent_type: "feature-dev:code-explorer") to deeply
 analyze the codebase areas relevant to the requirement. Pass it:
 
 - The full requirement text
@@ -131,6 +131,19 @@ Brief description of the implementation approach.
 
 Order tasks by dependency — earlier tasks must be completable without later ones. Reference real
 file paths from the project.
+
+Apply these task splitting principles when synthesizing the task list:
+
+1. **Single responsibility** — Each task should address one concern (one module, one layer, one
+   feature). Do not combine unrelated changes (e.g., a database migration and a UI component) into
+   the same task.
+2. **Independently verifiable** — Each task should be testable or checkable on its own after
+   completion, without needing later tasks to be done first.
+3. **Granularity upper bound** — If a task involves modifying more than 3-4 files, consider
+   splitting it into smaller tasks along module or layer boundaries. This is a guideline, not a
+   hard limit — use judgment based on project structure.
+4. **Explicit dependencies** — Every task must declare its dependencies via the Dependencies field.
+   If a task has no dependencies, write "none".
 
 ### Step 4: Technical Design
 
