@@ -1,6 +1,6 @@
 {
   "name": "supercoder",
-  "version": "0.1.0",
-  "description": "Analyze requirements documents with project-aware context. One-click pipeline: review, task breakdown, and technical design.",
-  "keywords": ["requirements", "analysis", "workflow", "task-breakdown", "technical-design"]
+  "version": "2.0.0",
+  "description": "AI pair programmer: from requirement to working code. Interactive workflow covering discover, explore, clarify, design, implement, and verify.",
+  "keywords": ["requirements", "analysis", "workflow", "implementation", "technical-design", "pair-programming"]
 }

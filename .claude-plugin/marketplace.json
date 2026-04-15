@@ -1,14 +1,14 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "unfallenwill-supercoder",
-  "description": "Analyze requirements documents with full project context. One-click pipeline that produces a review, task breakdown, and technical design grounded in your actual codebase.",
+  "description": "AI pair programmer that goes from requirement to working code. Interactive six-phase workflow: discover, explore, clarify, design, implement, verify.",
   "owner": {
     "name": "unfallenwill"
   },
   "plugins": [
     {
       "name": "supercoder",
-      "description": "Analyze requirements documents with full project context. One-click pipeline: review, task breakdown, and technical design grounded in your actual codebase.",
+      "description": "AI pair programmer: from requirement to working code. Interactive six-phase workflow with user checkpoints at key decision points.",
       "category": "development",
       "source": {
         "source": "url",
