@@ -1,63 +1,32 @@
-# Phase 1: Discover — 需求理解
+# Phase 1: Discover
 
 > Load this reference at the start of Phase 1.
 
-Parse the requirement and build a structured understanding of what the user wants.
-This phase is about making sense of raw input, not about the codebase yet.
+Parse the requirement and build a structured understanding of what the user wants. This phase is about making sense of raw input — the codebase comes later.
 
-## Input
-- Requirement content from user (already fetched/resolved by SKILL.md Input Parsing)
+## What to Communicate
 
-## Output
-Structured understanding presented in conversation:
+After analyzing the requirement, present these points clearly:
 
-```
-### Requirement: [Title]
+- **Core intent** — what the user actually wants, in one sentence
+- **Scope** — what's in, what's implicitly in, what's out
+- **Acceptance criteria** — numbered, testable conditions for "done"
+- **Constraints** — technical, business, compatibility, performance
+- **Key terms** — definitions for any ambiguous or domain-specific terms
+- **Open questions** — ambiguities to resolve in Phase 3
 
-**Core Intent:** [one sentence]
+Write it naturally. The goal is clarity, not filling in a form.
 
-**Scope:**
-- In: [items]
-- Implicit: [items]
-- Out: [items]
+## Context to Preserve
 
-**Acceptance Criteria:**
-1. [criterion]
-2. [criterion]
-
-**Constraints:** [list]
-
-**Key Terms:** [term: definition pairs]
-
-**Preliminary Questions:** [list for Phase 3]
-```
-
-## Carry-Forward Summary
-
-Before completing this phase, output a compact summary (under 100 words) for
-downstream phases:
-
-```
-## Carry-Forward
-- **Intent:** [core intent in one line]
-- **Scope:** [key in/out items]
-- **Criteria count:** [N acceptance criteria]
-- **Key constraints:** [top 1-2 constraints]
-- **Open questions:** [count] preliminary questions for Phase 3
-```
+Before finishing, make sure the conversation retains: the core intent, key scope boundaries, how many acceptance criteria exist, the most important constraints, and how many open questions remain for Phase 3. A sentence or two is enough.
 
 ## Steps
 
-1. **TaskUpdate** — set Phase 1 status to `in_progress`.
-
-2. **Extract structured understanding** — Analyze the requirement across five
-   dimensions: Core Intent, Scope (in/implicit/out), Acceptance Criteria (numbered,
-   testable), Constraints (technical/business/compat/performance), Key Terms
-   (definitions). Present using the Output template above.
-
-3. **Produce carry-forward summary** using the template above.
-
-4. **TaskUpdate** — set Phase 1 status to `completed`.
+1. TaskUpdate — set Phase 1 to `in_progress`.
+2. Analyze the requirement across five dimensions: core intent, scope (in/implicit/out), acceptance criteria (numbered, testable), constraints (technical/business/compatibility/performance), key terms (definitions). Present the analysis clearly.
+3. Preserve context for downstream phases.
+4. TaskUpdate — set Phase 1 to `completed`.
 
 ## Transition
 
