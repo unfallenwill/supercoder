@@ -25,7 +25,3 @@ Before finishing, make sure the conversation retains: the core intent, key scope
 3. If the requirement has ambiguities that prevent clear scoping (e.g., "add payments" without specifying which methods, "improve performance" without saying for what), ask the user via AskUserQuestion before proceeding. Do not guess.
 4. Preserve context for downstream phases.
 5. TaskUpdate — set Phase 1 to `completed`.
-
-## Transition
-
-Proceed to Phase 2 (Explore). Read `explore-phase.md`.

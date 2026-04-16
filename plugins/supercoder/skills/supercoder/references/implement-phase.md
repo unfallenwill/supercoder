@@ -56,8 +56,4 @@ Before finishing, make sure the conversation retains: how many files changed and
 
 ## Rollback
 
-If implementation reveals fundamental design issues: report what was found, explain why the design doesn't work, set Phase 4 (Design) back to `pending`, and propose an adjusted design (carrying forward prior findings).
-
-## Transition
-
-Proceed to Phase 6 (Verify). Read `verify-phase.md`.
+If implementation reveals fundamental design issues: report findings, set Phase 4 back to `pending`, propose an adjusted design.

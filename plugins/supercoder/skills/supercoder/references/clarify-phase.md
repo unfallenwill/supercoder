@@ -39,8 +39,4 @@ Good technical questions are specific and grounded in the codebase. Compare:
 
 ## Rollback
 
-If clarification reveals insufficient exploration (e.g., the user mentions a module not found): set Phase 2 back to `pending` and specify what additional areas need exploration.
-
-## Transition
-
-Proceed to Phase 4 (Design). Read `design-phase.md`.
+If clarification reveals insufficient exploration: set Phase 2 back to `pending`, specify what areas need exploration.

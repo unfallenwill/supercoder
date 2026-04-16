@@ -48,8 +48,4 @@ Similar features previously implemented, patterns to follow for consistency, ant
 
 ## Rollback
 
-If a later phase discovers insufficient exploration, set Phase 2 back to `pending` and re-run with additional focus areas. Carry forward all prior findings.
-
-## Transition
-
-Proceed to Phase 3 (Clarify). Read `clarify-phase.md`.
+If a later phase discovers insufficient exploration: set Phase 2 back to `pending`, specify additional focus areas.

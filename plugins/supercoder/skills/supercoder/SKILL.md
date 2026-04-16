@@ -1,12 +1,12 @@
 ---
 name: supercoder
 description: >
-  This skill should be triggered when the user provides a requirements document, PRD,
-  specification, feature request, or any requirement text and wants it analyzed and
-  implemented against the current codebase. Use when the user asks to "analyze requirements,"
-  "implement a feature," "review a spec," "build this feature," "plan implementation,"
-  "assess feasibility," or provides a PRD/spec and wants end-to-end delivery. The full
-  workflow covers six phases: discover → explore → clarify → design → implement → verify.
+  Trigger when the user provides a requirement, PRD, specification, or feature request
+  and wants it analyzed and implemented against the codebase. Use when the user asks to
+  "implement a feature," "build this," "review a spec," "analyze requirements," "plan
+  implementation," "assess feasibility," or provides a PRD/spec and expects end-to-end
+  delivery. DO NOT TRIGGER for bug fixes, refactoring, code explanation, single-file
+  edits, or questions about existing code.
 argument-hint: <requirement content, URL, or file path>
 allowed-tools:
   - Agent
@@ -57,18 +57,16 @@ On skill start, create six tasks — one per phase: "Phase 1: Discover", "Phase 
 
 ## Phase Execution
 
-At the start of each phase, read the corresponding reference file for detailed guidance. Resolve `$CLAUDE_PLUGIN_ROOT` with Bash (`echo $CLAUDE_PLUGIN_ROOT`) then use Read to load the file.
+At the start of each phase, read the corresponding reference file under `${CLAUDE_SKILL_DIR}/references/`:
 
 | Phase | Reference |
 |-------|-----------|
-| 1. Discover | `references/discover-phase.md` |
-| 2. Explore | `references/explore-phase.md` |
-| 3. Clarify | `references/clarify-phase.md` |
-| 4. Design | `references/design-phase.md` |
-| 5. Implement | `references/implement-phase.md` |
-| 6. Verify | `references/verify-phase.md` |
-
-Full path example: `$CLAUDE_PLUGIN_ROOT/references/discover-phase.md`
+| 1. Discover | `${CLAUDE_SKILL_DIR}/references/discover-phase.md` |
+| 2. Explore | `${CLAUDE_SKILL_DIR}/references/explore-phase.md` |
+| 3. Clarify | `${CLAUDE_SKILL_DIR}/references/clarify-phase.md` |
+| 4. Design | `${CLAUDE_SKILL_DIR}/references/design-phase.md` |
+| 5. Implement | `${CLAUDE_SKILL_DIR}/references/implement-phase.md` |
+| 6. Verify | `${CLAUDE_SKILL_DIR}/references/verify-phase.md` |
 
 ## Context Carry-Forward
 

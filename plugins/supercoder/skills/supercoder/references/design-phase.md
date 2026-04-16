@@ -35,8 +35,4 @@ Before finishing, make sure the conversation retains: the chosen approach and wh
 
 ## Rollback
 
-If detailing the chosen approach reveals ambiguities: set Phase 3 back to `pending`, return with specific new questions, and carry forward all prior findings.
-
-## Transition
-
-Proceed to Phase 5 (Implement). Read `implement-phase.md`.
+If detailing the chosen approach reveals ambiguities: set Phase 3 back to `pending`, return with specific new questions.
